@@ -105,9 +105,9 @@ nav.sc .burger span{background:var(--ink)}
 .sd{font-size:14px;color:var(--muted);line-height:1.75;max-width:480px}
 .sl{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);transition:gap .2s,color .2s}
 .sl:hover{gap:15px;color:var(--ink)}
-.rv{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
-.rv.on{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.18s}.d3{transition-delay:.28s}.d4{transition-delay:.38s}.d5{transition-delay:.48s}
 
 /* JURIS CARDS */
 .jgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
@@ -1819,8 +1819,11 @@ window.addEventListener('scroll',()=>{
   const dsi=document.getElementById('dsi');
   if(dsi){const r=dsi.closest('.dstrip')?.getBoundingClientRect();if(r){const p=(wh-r.top)/(wh+r.height);dsi.style.transform=`translateY(${(p-.5)*120}px)`;}}
 },{passive:true});
-// Reveal
-const rvEls=document.querySelectorAll('.rv');if('IntersectionObserver' in window){rvEls.forEach(el=>{new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');});},{threshold:0}).observe(el);});}else{rvEls.forEach(el=>el.classList.add('on'));}
+// Reveal on scroll
+const rvObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target);}});},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+// Fallback: reveal все через 1.2s если не сработал observer
+setTimeout(()=>document.querySelectorAll('.rv:not(.on)').forEach(el=>el.classList.add('on')),1200);
 // FAQ
 function tf(btn){const i=btn.closest('.fi'),w=i.classList.contains('open');document.querySelectorAll('.fi.open').forEach(x=>x.classList.remove('open'));if(!w)i.classList.add('open');}
 // Form
