@@ -116,8 +116,8 @@ nav.sc .burger span{background:var(--ink)}
 .jcard{border-radius:var(--rxl);overflow:hidden;border:1px solid var(--border);background:var(--white);transition:box-shadow .28s,transform .28s,border-color .28s;cursor:pointer}
 .jcard:hover{box-shadow:0 10px 44px rgba(125,90,68,.12);transform:translateY(-4px);border-color:var(--accent)}
 .jphoto{height:220px;position:relative;overflow:hidden}
-.jphi{position:absolute;inset:-8%;background-size:cover;background-position:center;transition:transform .55s ease}
-.jcard:hover .jphi{transform:scale(1.05)}
+.jphi{position:absolute;inset:-12%;background-size:cover;background-position:center;will-change:transform;transition:transform .12s linear}
+.jcard:hover .jphi{transform:scale(1.06) translateY(var(--py,0px))!important;transition:transform .45s ease!important}
 .jpho{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(10,12,14,.55) 100%)}
 .jflag{position:absolute;bottom:14px;left:14px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:7px}
 .jbody{padding:24px 26px 28px}
@@ -1811,14 +1811,23 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>120));
 function gs(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function cm(){document.getElementById('mob').classList.remove('open');}
-// Parallax
-window.addEventListener('scroll',()=>{
+// Parallax — все картинки живые
+function runParallax(){
   const sy=scrollY,wh=window.innerHeight;
+  // Hero
   const hbg=document.querySelector('.hbg');
   if(hbg) hbg.style.transform=`scale(1.08) translateY(${sy*.22}px)`;
+  // Фото-полоса
   const dsi=document.getElementById('dsi');
-  if(dsi){const r=dsi.closest('.dstrip')?.getBoundingClientRect();if(r){const p=(wh-r.top)/(wh+r.height);dsi.style.transform=`translateY(${(p-.5)*120}px)`;}}
-},{passive:true});
+  if(dsi){const r=dsi.closest('.dstrip')?.getBoundingClientRect();if(r){const p=(wh-r.top)/(wh+r.height);dsi.style.transform=`translateY(${(p-.5)*130}px)`;}}
+  // Картинки в карточках юрисдикций
+  document.querySelectorAll('.jphi').forEach(img=>{
+    const r=img.closest('.jphoto')?.getBoundingClientRect();
+    if(r){const p=(wh-r.top)/(wh+r.height);const offset=((p-.5)*50).toFixed(2);img.style.setProperty('--py',offset+'px');img.style.transform=`translateY(${offset}px)`;}
+  });
+}
+window.addEventListener('scroll',runParallax,{passive:true});
+runParallax();
 // Reveal on scroll
 const rvObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');rvObs.unobserve(e.target);}});},{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
