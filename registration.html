@@ -89,7 +89,9 @@ nav.sc .ls-div{color:rgba(0,0,0,.2)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
 /* HERO */
-.phero{background:#1C1C1C;padding:120px 56px 72px;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end}
+.phero{position:relative;overflow:hidden;background:#1C1C1C;padding:120px 56px 72px;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end}
+.phero-bg{position:absolute;inset:-8%;background:url('hero.jpeg') center/cover no-repeat;will-change:transform}
+.phero-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,12,14,.82) 0%,rgba(28,28,28,.55) 60%,rgba(10,12,14,.75) 100%)}
 @media(max-width:768px){.phero{padding:100px 24px 52px}}
 .phero-ey{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .phero-eyl{width:32px;height:1.5px;background:rgba(255,255,255,.4)}
@@ -108,7 +110,11 @@ nav.sc .ls-div{color:rgba(0,0,0,.2)}
 .sec-head{text-align:center;margin-bottom:48px}
 .jurgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:900px){.jurgrid{grid-template-columns:1fr}}
-.jurcard{background:var(--white);border-radius:var(--rxl);padding:36px 32px 32px;border:1px solid var(--border);display:flex;flex-direction:column;gap:0;position:relative;transition:box-shadow .28s,transform .28s,border-color .28s}
+.jur-img{height:160px;border-radius:16px 16px 0 0;overflow:hidden;margin:-36px -32px 24px;position:relative;flex-shrink:0}
+.jur-img-i{position:absolute;inset:-8%;background-size:cover;background-position:center;transition:transform .55s ease}
+.jurcard:hover .jur-img-i{transform:scale(1.05)}
+.jur-img-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(10,12,14,.35) 100%)}
+.jurcard{background:var(--white);border-radius:var(--rxl);padding:36px 32px 32px;border:1px solid var(--border);display:flex;flex-direction:column;gap:0;position:relative;transition:box-shadow .28s,transform .28s,border-color .28s;overflow:hidden}
 .jurcard:hover{box-shadow:0 8px 40px rgba(125,90,68,.1);transform:translateY(-4px);border-color:var(--accent)}
 .jurcard.featured{border-color:var(--accent);box-shadow:0 4px 32px rgba(125,90,68,.12)}
 .jur-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:6px;margin-bottom:18px;background:rgba(178,150,125,.12);color:var(--accent)}
@@ -144,7 +150,10 @@ nav.sc .ls-div{color:rgba(0,0,0,.2)}
 .fz-row span:last-child{font-weight:600;color:var(--ink)}
 
 /* STEPS */
-.stepsec{background:var(--bg3);padding:80px 56px}
+.stepsec{position:relative;padding:80px 56px;overflow:hidden}
+.stepsec-bg{position:absolute;inset:0;background:url('documents.jpeg') center/cover no-repeat}
+.stepsec-ov{position:absolute;inset:0;background:rgba(229,219,204,.93)}
+.stepsec-inner{position:relative;z-index:1}
 @media(max-width:768px){.stepsec{padding:60px 20px}}
 .stepflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;position:relative}
 @media(max-width:900px){.stepflow{grid-template-columns:1fr;gap:0}}
@@ -1109,6 +1118,8 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
 
 <!-- HERO -->
 <section class="phero">
+  <div class="phero-bg" id="heroBg"></div>
+  <div class="phero-ov"></div>
   <div class="phero-ey rv d1">
     <div class="phero-eyl"></div>
     <span>Регистрация компании</span>
@@ -1130,6 +1141,7 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
   </div>
   <div class="jurgrid">
     <div class="jurcard featured rv d1">
+      <div class="jur-img"><div class="jur-img-i" style="background-image:url('uae-office.jpeg')"></div><div class="jur-img-ov"></div></div>
       <span class="jur-tag hot">Популярно</span>
       <span class="jur-flag">🇦🇪</span>
       <div class="jur-subtitle">Свободные зоны и материк</div>
@@ -1146,6 +1158,7 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
       <button class="jur-btn" onclick="gs('cta')">Зарегистрировать в ОАЭ →</button>
     </div>
     <div class="jurcard rv d2">
+      <div class="jur-img"><div class="jur-img-i" style="background-image:url('china.jpeg')"></div><div class="jur-img-ov"></div></div>
       <span class="jur-tag">Китай</span>
       <span class="jur-flag">🇨🇳</span>
       <div class="jur-subtitle">WFOE — 100% иностранная компания</div>
@@ -1162,6 +1175,7 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
       <button class="jur-btn" onclick="gs('cta')">Зарегистрировать в Китае →</button>
     </div>
     <div class="jurcard rv d3">
+      <div class="jur-img"><div class="jur-img-i" style="background-image:url('hk.jpeg')"></div><div class="jur-img-ov"></div></div>
       <span class="jur-tag">Гонконг</span>
       <span class="jur-flag">🇭🇰</span>
       <div class="jur-subtitle">Ltd — международный холдинг</div>
@@ -1253,6 +1267,9 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
 
 <!-- PROCESS STEPS -->
 <section class="stepsec">
+  <div class="stepsec-bg"></div>
+  <div class="stepsec-ov"></div>
+  <div class="stepsec-inner">
   <div class="rv" style="text-align:center;margin-bottom:0">
     <div class="ew" style="justify-content:center"><div class="ewl"></div><span>Процесс</span></div>
     <h2 class="st" style="text-align:center">Как проходит <strong>регистрация</strong></h2>
@@ -1294,6 +1311,7 @@ footer{background:#1C1C1C;padding:64px 56px 30px}
         <p>Сопровождаем до открытия корпоративного счёта в банке</p>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -1865,7 +1883,8 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.le
 (function a(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
 document.querySelectorAll('a,button,.jurcard,.fzcard,.pricecard').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';});el.addEventListener('mouseleave',()=>{cur.style.width='9px';cur.style.height='9px';});});
 const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>80));
+const heroBg=document.getElementById('heroBg');
+window.addEventListener('scroll',()=>{nav.classList.toggle('sc',scrollY>80);if(heroBg)heroBg.style.transform=`translateY(${scrollY*0.25}px)`;});
 function gs(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
 function cm(){document.getElementById('mob').classList.remove('open');}
 document.querySelectorAll('.rv').forEach(el=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:.08}).observe(el);});
