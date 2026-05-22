@@ -38,6 +38,13 @@ nav.sc svg.logo-black{display:block!important}
 .nbtn{font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:8px;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer;transition:all .22s}
 nav.sc .nbtn{border-color:var(--accent);color:var(--accent)}
 .nbtn:hover{background:var(--accent);border-color:var(--accent);color:#fff!important}
+.lang-sw{display:flex;align-items:center;gap:4px;margin-left:16px}
+.ls-btn{background:none;border:none;font-family:inherit;font-size:11px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.35);cursor:default;padding:4px 6px;border-radius:6px}
+.ls-btn.ls-active{color:#fff;background:rgba(255,255,255,.1)}
+.ls-div{color:rgba(255,255,255,.2);font-size:10px}
+nav.sc .ls-btn{color:rgba(0,0,0,.35)}
+nav.sc .ls-btn.ls-active{color:var(--ink);background:rgba(0,0,0,.08)}
+nav.sc .ls-div{color:rgba(0,0,0,.2)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .burger span{width:22px;height:1.5px;background:#fff;display:block;transition:background .2s}
 nav.sc .burger span{background:var(--ink)}
@@ -1058,6 +1065,11 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
     <a href="contacts.html">Контакты</a>
   </div>
   <button class="nbtn" onclick="gs('cta')">Консультация</button>
+  <div class="lang-sw">
+    <button class="ls-btn ls-active">RU</button>
+    <span class="ls-div">|</span>
+    <button class="ls-btn">EN</button>
+  </div>
   <div class="burger" onclick="document.getElementById('mob').classList.toggle('open')"><span></span><span></span><span></span></div>
 </nav>
 
