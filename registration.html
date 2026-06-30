@@ -249,8 +249,8 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
   <a href="registration.html" onclick="cm()" style="color:var(--accent)" data-ru="Регистрация" data-en="Registration">Регистрация</a>
   <a href="accounting.html" onclick="cm()" data-ru="Бухгалтерия" data-en="Accounting">Бухгалтерия</a>
   <a href="banking.html" onclick="cm()" data-ru="Счета" data-en="Accounts">Счета</a>
-  <a href="finance.html" onclick="cm()">Финансы</a>
-  <a href="agency.html" onclick="cm()">Агентский сервис</a>
+  <a href="finance.html" onclick="cm()" data-ru="Финансы" data-en="Finance">Финансы</a>
+  <a href="agency.html" onclick="cm()" data-ru="Агентский сервис" data-en="Agency">Агентский сервис</a>
   <a href="visa.html" onclick="cm()" data-ru="Визы" data-en="Visas">Визы</a>
   <a href="contacts.html" onclick="cm()" data-ru="Контакты" data-en="Contacts">Контакты</a>
 </div>
@@ -1084,8 +1084,8 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
     <a href="registration.html" class="active" data-ru="Регистрация" data-en="Registration">Регистрация</a>
     <a href="accounting.html" data-ru="Бухгалтерия" data-en="Accounting">Бухгалтерия</a>
     <a href="banking.html" data-ru="Счета" data-en="Accounts">Счета</a>
-    <a href="finance.html">Финансы</a>
-    <a href="agency.html">Агентский сервис</a>
+    <a href="finance.html" data-ru="Финансы" data-en="Finance">Финансы</a>
+    <a href="agency.html" data-ru="Агентский сервис" data-en="Agency">Агентский сервис</a>
     <a href="visa.html" data-ru="Визы" data-en="Visas">Визы</a>
     <a href="contacts.html" data-ru="Контакты" data-en="Contacts">Контакты</a>
   </div>
@@ -1129,7 +1129,7 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
   </div>
   <div class="jgrid">
     <div class="jcard rv">
-      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img24.jpg')"></div><div class="jpho"></div><div class="jflag">🇦🇪 ОАЭ</div></div>
+      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img24.jpg')"></div><div class="jpho"></div><div class="jflag" data-ru="🇦🇪 ОАЭ" data-en="🇦🇪 UAE">🇦🇪 ОАЭ</div></div>
       <div class="jbody">
         <h3 data-ru="ОАЭ — Dubai" data-en="UAE — Dubai">ОАЭ — Dubai</h3>
         <div class="sub" data-ru="Свободная экономическая зона" data-en="Free Zones &amp; Mainland">Свободная экономическая зона</div>
@@ -1146,7 +1146,7 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
       </div>
     </div>
     <div class="jcard rv d1">
-      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img25.jpg');background-position:center 40%"></div><div class="jpho"></div><div class="jflag">🇨🇳 Китай</div></div>
+      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img25.jpg');background-position:center 40%"></div><div class="jpho"></div><div class="jflag" data-ru="🇨🇳 Китай" data-en="🇨🇳 China">🇨🇳 Китай</div></div>
       <div class="jbody">
         <h3 data-ru="Китай — WFOE" data-en="China — WFOE">Китай — WFOE</h3>
         <div class="sub" data-ru="Шанхай, Пекин, Шэньчжэнь" data-en="Shanghai, Beijing, Shenzhen">Шанхай, Пекин, Шэньчжэнь</div>
@@ -1163,7 +1163,7 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
       </div>
     </div>
     <div class="jcard rv d2">
-      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img26.jpg');background-position:center 30%"></div><div class="jpho"></div><div class="jflag">🇭🇰 Гонконг</div></div>
+      <div class="jphoto"><div class="jphi" style="background-image:url('assets/img/img26.jpg');background-position:center 30%"></div><div class="jpho"></div><div class="jflag" data-ru="🇭🇰 Гонконг" data-en="🇭🇰 Hong Kong">🇭🇰 Гонконг</div></div>
       <div class="jbody">
         <h3 data-ru="Гонконг — Ltd" data-en="Hong Kong — Ltd">Гонконг — Ltd</h3>
         <div class="sub" data-ru="Private Limited Company" data-en="International Holding">Private Limited Company</div>
@@ -1341,7 +1341,7 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
         <input class="cinp" type="text" placeholder="Ваше имя" id="cn" data-ru-ph="Ваше имя" data-en-ph="Your Name">
         <input class="cinp" type="tel" placeholder="Телефон / WhatsApp" id="cp" data-ru-ph="Телефон / WhatsApp" data-en-ph="Phone / WhatsApp">
         <select class="cinp csel" id="cs" data-lang-select data-ru-opts='["Юрисдикция","🇦🇪 ОАЭ — Dubai","🇨🇳 Китай — WFOE","🇭🇰 Гонконг — Ltd","Нужна консультация по выбору"]' data-en-opts='["Service of Interest","🇦🇪 UAE — Dubai","🇨🇳 China — WFOE","🇭🇰 Hong Kong — Ltd","Need help choosing"]'>
-          <option value="">Юрисдикция</option>
+          <option value="" data-ru="Юрисдикция" data-en="Jurisdiction">Юрисдикция</option>
           <option>🇦🇪 ОАЭ — Dubai</option>
           <option>🇨🇳 Китай — WFOE</option>
           <option>🇭🇰 Гонконг — Ltd</option>
@@ -1802,7 +1802,7 @@ footer{background:#1C1C1C;padding:64px 72px 30px}
     </ul></div>
   </div>
   <div class="fb">
-    <p>© 2025 AKFINANCE FZCO Dubai · экосистема AK.Office · License №62462 · Dubai Digital Park, UAE</p>
+    <p><span data-ru="© 2025 AKFINANCE FZCO Dubai · экосистема AK.Office · License №62462 · Dubai Digital Park, UAE" data-en="© 2025 AKFINANCE FZCO Dubai · AK.Office ecosystem · License №62462 · Dubai Digital Park, UAE">© 2025 AKFINANCE FZCO Dubai · экосистема AK.Office · License №62462 · Dubai Digital Park, UAE</span></p>
     <div class="fsoc">
       <a href="https://t.me/AKFinanceUAE" class="fsc">✈</a>
         <a href="https://t.me/infoAKCO" class="fsc" title="Telegram-чат @infoAKCO">✈</a>
